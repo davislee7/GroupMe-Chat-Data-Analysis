@@ -11,19 +11,17 @@ Tools to fetch the complete history of a GroupMe group chat and analyze it.
 `analyze.py` allows you to take the JSON file created by `fetch.py` and display multiple stats.
 
 ## Statistics Displayed
-1) Message count by member
+1) Individualized stats by member, sorted by total likes received
 
-2) Message count by month
+2) Likes received and where that ranks in the group
 
-3) Message count by time of day
+3) Messages sent and where that ranks in the group
 
-4) Like count by member
+4) Likes given and where that ranks in the group
 
-5) Like to post ratio by member
+5) Like to post ratio and where that ranks in the group
 
-6) Any messages with a specified number of likes
-
-7) Any messages that contain a specified word.
+6) Most liked message and how many likes it received
 
 
 
@@ -51,4 +49,3 @@ The final dependency is [Gooey](https://github.com/chriskiehl/Gooey). (the tool 
 ## Stress Testing and Performance
 
 These tools have been tested with a transcript containing ~16,000 messages. It works fine.
-
