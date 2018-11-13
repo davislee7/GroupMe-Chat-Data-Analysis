@@ -45,31 +45,31 @@ oldestId" to continue fetching the past).]
    Messages newer than it will be retrieved and added at the bottom
    of the file, in order.
     """
-    parser = GooeyParser(description="Convert your to-be-analyzed grext into a JSON file!") 
+    parser = GooeyParser(description="Convert your to-be-analyzed grext into a JSON file!")
 
-	
+
     parser.add_argument('--AccessToken',
                             help='Enter your ACCESS TOKEN!')
     parser.add_argument('--idNumber',
                             help='Enter your group ID! To obtain your IDs enter \'help\'')
-	
+
     args = parser.parse_args()
     idNumber = args.idNumber
     #print idNumber
     accessToken = args.AccessToken
     #print accessToken
-	
+
     #if len(sys.argv) is not 2 and len(sys.argv) is not 4:
         #print(main.__doc__)
         #print("ending")
         #sys.exit(1)
-       
+
 
     beforeId = None
     stopId = None
 
 #Ignored because length can only be 2 or 4 now
-    
+
     group = idNumber
     #accessToken = sys.argv[2]
 
@@ -88,7 +88,7 @@ oldestId" to continue fetching the past).]
         'X-Access-Token': accessToken
     }
     names = {}
-#Naming the file with Group Name & Date Stamp:   
+#Naming the file with Group Name & Date Stamp:
     url = 'https://api.groupme.com/v3/groups?token=' + accessToken
     #print url
     ids = {}
@@ -106,10 +106,10 @@ oldestId" to continue fetching the past).]
     else:
         groupname = names[idNumber]
         #print groupname
-        
+
     transcriptFileName = groupname +time.strftime(" %m-%d-%Y")+ '.json'
     #print transcriptFileName + '          '
-    
+
     #sys.exit(0)
     try:
         transcriptFile = open(transcriptFileName)
@@ -149,6 +149,11 @@ oldestId" to continue fetching the past).]
         else:
             transcript.extend(messages)
 
+        if pageCount == 1:
+            print("bitch")
+
+        print(pageCount)
+
         if len(messages) is not 20:
             complete = True
             print('Reached the end/beginning!')
@@ -163,7 +168,7 @@ oldestId" to continue fetching the past).]
     json.dump(transcript, transcriptFile, ensure_ascii=False)
     print "\nCompleted:\n"+transcriptFileName
     transcriptFile.close()
-   
+
 
 if __name__ == '__main__':
     main()
