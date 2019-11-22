@@ -149,15 +149,16 @@ oldestId" to continue fetching the past).]
         else:
             transcript.extend(messages)
 
-        if pageCount == 1:
-            print("bitch")
+        # if pageCount == 1:
+        #     print("bitch")
 
         print(pageCount)
 
         if len(messages) is not 20:
             complete = True
             print('Reached the end/beginning!')
-
+        # if pageCount == 223:
+        #     complete = True
         # keep working back in time
         beforeId = messages[-1][u'id']
 
